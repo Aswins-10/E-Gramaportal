@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    {% load static %}
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/static/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Status</title>
+    <style>
+ body {
+            background-image: url(/static/img/main.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .status-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        td {
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover td {
+            background-color: #eaf3ff;
+        }
+
+        .table-responsive {
+            max-height: 450px;
+            overflow-y: auto;
+        }
+
+        h1 {
+            color: white;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+    <link href="/static/https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+        <!--
+        CSS
+        ============================================= -->
+        <link rel="stylesheet" href="/static/css/linearicons.css">
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/magnific-popup.css">
+        <link rel="stylesheet" href="/static/css/animate.min.css">
+        <link rel="stylesheet" href="/static/css/owl.carousel.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <body>
+        <!-- start banner Area -->
+        <section class="banner-area" id="home">
+            <!-- Start Header Area -->
+            <header class="default-header">
+                <nav class="navbar navbar-expand-lg  navbar-light">
+                    <div class="container">
+                          <a class="navbar-brand" href="/userhome/" style="color:white;">E-Gramaportal
+                              <!-- <img src="/static/img/logo.png" alt=""> -->
+                          </a>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="text-white lnr lnr-menu"></span>
+                          </button>
+
+                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li><a href="/userhome/">Home</a></li>
+                                <li><a href="/viewscheme/">Scheme</a></li>									
+                                <li><a href="/viewnotice/">Notice</a></li>
+                                <li><a href="/feedback/">Feedback</a></li>
+                                <li><a href="/complaint/">Complaints</a></li>
+                               
+                                <li class="dropdown">
+                                  <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Status
+                                  </a>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/viewapstatus/">Application Status</a>
+                                    <a class="dropdown-item" href="/viewcstatus/">Solution For Complaint</a> 
+                                  </div>
+                                </li>
+                                <li><a href="/myprofile/">My Profile</a></li> 
+                                <li><a href="/index/">Logout</a></li>
+                            </ul>
+                          </div>						
+                    </div>
+                </nav>
+            </header>
+            <!-- End Header Area -->				
+        </section>
+
+        <section class="feature-area section-gap" id="secvice">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-60 col-lg-8">
+                        <div class="title text-center">
+                            <h1 class="mb-10">COMPLAINT STATUS</h1>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="status-container">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Complaint</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Complaint Response</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in cr %}
+                                <tr>
+                                    <td>{{i.cid}}</td>
+                                    <td>{{i.name}}</td>
+                                    <td>{{i.complaint}}</td>
+                                    <td>{{i.dte}}</td>
+                                    <td>{{i.status}}</td>
+                                    <td>{{i.solution}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end contact Area -->		
+        
+        <!-- start footer Area -->		
+        <footer class="footer-area section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <p class="footer-text">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Creats</a></p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                    </div>
+                                        
+                </div>
+            </div>
+        </footer>	
+        <!-- End footer Area -->			
+
+        <script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="/static/https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="/static/js/vendor/bootstrap.min.js"></script>
+        <script src="/static/js/jquery.ajaxchimp.min.js"></script>
+        <script src="/static/js/jquery.magnific-popup.min.js"></script>	
+        <script src="/static/js/owl.carousel.min.js"></script>			
+        <script src="/static/js/jquery.sticky.js"></script>
+        <script src="/static/js/slick.js"></script>
+        <script src="/static/js/jquery.counterup.min.js"></script>
+        <script src="/static/js/waypoints.min.js"></script>		
+        <script src="/static/js/main.js"></script>	
+    </body>
+    <script type="text/javascript">
+        function check()
+        {
+            var letters=/^['A-Z a-z']+$/;
+            var numbers=/^['0-9']+$/;
+            if(!document.getElementById('name').value.match(letters))
+            {
+                alert('Input alphabets for name');
+                return false;
+            }
+            else if(!document.getElementById('cno').value.match(numbers))
+            {
+                alert('Input digits for phone number');
+                return false;
+            }
+            // else if(!document.getElementById('place').value.match(letters))
+            // {
+            //     alert('Input alphabets for place');
+            //     return false;
+            // }
+            // else if(!document.getElementById('subject').value.match(letters))
+            // {
+            //     alert('Input letters for subject');
+            //     return false;
+            // }
+            else
+            {
+                return true;
+            }
+        }
+    </script>
+</html>
